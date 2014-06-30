@@ -63,11 +63,6 @@ SDLRenderer::~SDLRenderer() {
   SDL_Quit();
 }
 
-void SDLRenderer::update(double dt) {
-  // std::cout << "SDLRenderer::update() not yet implemented" << std::endl;
-  // std::cout << "But it has been " << dt << " seconds since the last tick" << std::endl;
-}
-
 void SDLRenderer::render() {
   SDL_RenderClear(renderer);
 
@@ -143,13 +138,13 @@ SDL_Texture* SDLRenderer::getTexture(Entity* e) {
 }
 
 SDL_Texture* SDLRenderer::getText(Entity* e) {
-  Typeface* typeface = e->as<Typeface>();
-  Text* text = e->as<Text>();
-  if (typeface == NULL || text == NULL) {
-    return 0;
-  }
-
   if ( ! e->has<SDLTexture>()) {
+    Typeface* typeface = e->as<Typeface>();
+    Text* text = e->as<Text>();
+    if (typeface == NULL || text == NULL) {
+      return 0;
+    }
+
     char* sdl_path = SDL_GetBasePath();
     std::string path(sdl_path);
     path += typeface->path;
@@ -173,38 +168,36 @@ SDL_Texture* SDLRenderer::getText(Entity* e) {
 }
 
 // Default enforcers
+Position* SDLRenderer::defaultPosition = new Position(0, 0);
+Rotation* SDLRenderer::defaultRotation = new Rotation(0.0);
+Offset* SDLRenderer::defaultOffset = new Offset(0, 0);
+
 Position* SDLRenderer::getPosition(Entity* e) {
   Position* p = e->as<Position>();
-  if (p == NULL) {
-    p = new Position(0, 0);
-  }
-  return p;
+  if (p) return p;
+  return defaultPosition;
 }
 
 Offset* SDLRenderer::getOffset(Entity* e) {
   Offset* o = e->as<Offset>();
-  if (o == NULL) {
-    o = new Offset(0, 0);
-  }
-  return o;
+  if (o) return o;
+  return defaultOffset;
 }
 
 Size* SDLRenderer::getSize(Entity* e, SDL_Texture* texture) {
   Size* s = e->as<Size>();
-  if (s == NULL) {
-    int width, height;
-    SDL_QueryTexture(texture, NULL, NULL, &width, &height);
-    s = new Size(width, height);
-  }
-  return s;
+  if (s) return s;
+
+  int width, height;
+  SDL_QueryTexture(texture, NULL, NULL, &width, &height);
+  e->add(new Size(width, height));
+  return e->as<Size>();
 }
 
 Rotation* SDLRenderer::getRotation(Entity* e) {
   Rotation* r = e->as<Rotation>();
-  if (r == NULL) {
-    r = new Rotation(0.0);
-  }
-  return r;
+  if (r) return r;
+  return defaultRotation;
 }
 
 }

@@ -36,6 +36,10 @@ namespace Veil {
     SDL_Renderer* renderer;
     SDL_Window* window;
 
+    static Position* defaultPosition;
+    static Rotation* defaultRotation;
+    static Offset* defaultOffset;
+
     void renderTexture(Entity* e);
     void renderText(Entity* e);
 
@@ -50,7 +54,6 @@ namespace Veil {
     public:
       SDLRenderer(Entity* e);
       ~SDLRenderer();
-      void update(double dt);
       void render();
   };
 
