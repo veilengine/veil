@@ -8,7 +8,7 @@ CP_R := cp -r
 
 .PHONY: all
 all: bin bin/assets
-	$(CXX) $(CXX_FLAGS) $(CXX_FILES) $(LIBS) $(LIBS) -o bin/game
+	$(CXX) $(CXX_FLAGS) $(CXX_FILES) $(LIBS) -o bin/game
 
 bin/assets:
 	@$(CP_R) assets bin
