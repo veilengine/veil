@@ -30,3 +30,8 @@ lib/libveil.so: $(OBJ_FILES)
 clean:
 	@-$(RM_RF) bin lib obj
 	$(MAKE) -C game clean
+
+# Test run build task
+.PHONY: run
+run: clean all
+	@cd game/bin && ./game

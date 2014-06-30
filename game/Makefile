@@ -2,7 +2,7 @@ BASEDIR = ..
 BUILD_DIR = bin
 CXX_FILES = $(wildcard *.cpp)
 CXX_FLAGS = -g -Wall -std=c++11 -I/usr/local/include/ -L/usr/local/lib -I../include -L../lib
-LIBS = -lveil -lSDL2 -lSDL2_image -lSDL2_ttf -luv
+LIBS = -lveil -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -luv
 RM_RF := rm -rf
 CP_R := cp -r
 

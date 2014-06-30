@@ -2,6 +2,7 @@
 #include <Veil/Systems/Lambda.h>
 #include <Veil/Systems/SDLRenderer.h>
 #include <Veil/Systems/SDLInput.h>
+#include <Veil/Systems/SDLSound.h>
 
 using namespace Veil;
 
@@ -21,7 +22,9 @@ int main (int argc, char* argv[]) {
 	// so multiple systems can depend on it, but only call it once
 	world->add(new SDLRenderer(window));
 	world->add(new SDLInput());
-	// world->add(new SDLSound());
+	SDLSound* sound = SDLSound::instance();
+	sound->playMusic("assets/song.mp3");
+	world->add(sound);
 
 	// Create person entity
 	Position* pos = new Position(100, 200);
