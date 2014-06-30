@@ -123,7 +123,7 @@ void SDLRenderer::renderTexture(Entity* e) {
     destRect.x = position->x;
     destRect.y = position->y;
 
-    SDL_RenderCopyEx(renderer, texture, &srcRect, &destRect, rotation->angle, 0, flip);
+    SDL_RenderCopyEx(renderer, texture, &srcRect, &destRect, int(rotation->angle * 360), 0, flip);
   }
 }
 

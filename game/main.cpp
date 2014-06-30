@@ -14,7 +14,6 @@ int main (int argc, char* argv[]) {
 	window->add(new WindowTitle("Test"));
 	window->add(new Fullscreen(false));
 	window->add(new Position(100, 100));
-	window->add(new Rotation(0.5));
 	window->add(new Size(640, 480));
 
 	// Add systems to the world
@@ -28,6 +27,7 @@ int main (int argc, char* argv[]) {
 	Position* pos = new Position(100, 200);
 	Entity* player = new Entity();
 	player->add(new Texture("assets/sprite.png"));
+	player->add(new Rotation(0.5));
 	player->add(pos);
 	player->add(new Size(105, 153));
 	world->add(player);
