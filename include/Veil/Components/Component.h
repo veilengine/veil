@@ -1,6 +1,9 @@
 #ifndef __VeilComponent__
 #define __VeilComponent__
 
+#include <unordered_map>
+#include <typeinfo>
+
 namespace Veil {
 
   class Component {

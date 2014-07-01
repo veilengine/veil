@@ -1,6 +1,8 @@
 #ifndef __Veil__
 #define __Veil__
 
+#include <iostream>
+
 #include <Veil/Entity.h>
 #include <Veil/World.h>
 #include <Veil/Components/WindowTitle.h>

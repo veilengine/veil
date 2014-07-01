@@ -1,9 +1,6 @@
 #ifndef __VeilEntity__
 #define __VeilEntity__
 
-#include <typeinfo>
-#include <iostream>
-#include <unordered_map>
 #include <Veil/Components/Component.h>
 
 namespace Veil {

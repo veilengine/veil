@@ -3,7 +3,10 @@
 
 #include <ctime>
 #include <vector>
+
+// NOTE: libuv will eventually be used for cross-platform networking and timers
 #include <uv.h>
+
 #include <Veil/Entity.h>
 #include <Veil/Systems/System.h>
 

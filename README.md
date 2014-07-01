@@ -7,16 +7,6 @@ It is very young and thus also very experimental at this stage. Expect lots of
 major breaking changes in the near future. The codebase is pretty small, so
 feel free to dig in and see how it works.
 
-# TODO:
-- Move SDL stuff to a separate project namespaced in Veil::SDL
-- Expand SDLInput to allow registration of lambdas to handle keypresses
-- Make SDLRenderer track entity changes and reload textures, if applicable
-- Add plane flipping via SDL_RendererFlip (Negative scale, maybe?)
-- Add Origin component to move rotation point
-- Add Scale component
-- Create window from renderer, entity object is hack-ish
-- Multi-window support
-
 ### Copyright (c) 2014 Stephen Belanger
 #### Licensed under MIT License
 
