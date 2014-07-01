@@ -6,11 +6,11 @@
 namespace Veil {
 
   struct Color : public Component {
-    const Uint8 red;
-    const Uint8 green;
-    const Uint8 blue;
+    const uint8_t red;
+    const uint8_t green;
+    const uint8_t blue;
 
-    Color(Uint8 _red, Uint8 _green, Uint8 _blue)
+    Color(uint8_t _red, uint8_t _green, uint8_t _blue)
       : red(_red), green(_green), blue(_blue) {};
   };
 
