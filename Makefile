@@ -7,7 +7,6 @@ RM_F := rm -f
 # all also makes the game
 .PHONY: all
 all: static
-	$(MAKE) -C game
 
 lib:
 	@mkdir $@
@@ -29,9 +28,3 @@ lib/libveil.so: $(OBJ_FILES)
 .PHONY: clean
 clean:
 	@-$(RM_RF) bin lib obj
-	$(MAKE) -C game clean
-
-# Test run build task
-.PHONY: run
-run: clean all
-	@cd game/bin && ./game
